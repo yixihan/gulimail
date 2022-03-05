@@ -2,19 +2,111 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.yixiham.gulimail</groupId>
-    <artifactId>gulimail</artifactId>
+
+    <groupId>com.yixiham.gulimall</groupId>
+    <artifactId>gulimall</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>gulimail</name>
+    <name>gulimall</name>
     <description>谷粒商城-聚合服务</description>
     <packaging>pom</packaging>
 
     <modules>
-        <module>gulimail-coupon</module>
-        <module>gulimail-member</module>
-        <module>gulimail-order</module>
-        <module>gulimail-product</module>
-        <module>gulimail-ware</module>
+        <module>gulimall-coupon</module>
+        <module>gulimall-member</module>
+        <module>gulimall-order</module>
+        <module>gulimall-product</module>
+        <module>gulimall-ware</module>
+        <module>renren-fast</module>
+        <module>gulimall-common</module>
     </modules>
 
+    <!-- 统一管理 jar 包版本 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <mybatisPlus.version>3.2.0</mybatisPlus.version>
+        <lombok.version>1.18.22</lombok.version>
+        <druid.version>1.2.8</druid.version>
+        <mysql.version>8.0.27</mysql.version>
+        <log4j.version>2.14.1</log4j.version>
+        <junit.version>4.12</junit.version>
+        <httpcore.version>4.4.13</httpcore.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <jakarta.validation-api.version>2.0.2</jakarta.validation-api.version>
+        <servlet-api>2.5</servlet-api>
+    </properties>
+
+    <!-- 子模块继承之后，提供作用：锁定版本 + 子 module 不用写 groupId 和version  -->
+    <dependencyManagement>
+        <dependencies>
+            <!--spring boot 2.3.12.RELEASE -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.3.12.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring cloud Hoxton.SR12 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR12</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- spring cloud alibaba 2.2.7.RELEASE -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.2.7.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- mysql connector -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!-- druid -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- mybatis-plus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatisPlus.version}</version>
+            </dependency>
+
+            <!-- 单元测试 -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+            <!-- log4j -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
