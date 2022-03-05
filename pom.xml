@@ -16,7 +16,6 @@
         <module>gulimall-order</module>
         <module>gulimall-product</module>
         <module>gulimall-ware</module>
-        <module>renren-fast</module>
         <module>gulimall-common</module>
     </modules>
 
@@ -25,6 +24,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <spring-boot-dependencies>2.3.12.RELEASE</spring-boot-dependencies>
+        <spring-cloud-dependencies>Hoxton.SR12</spring-cloud-dependencies>
+        <spring-cloud-alibaba-dependencies>2.2.7.RELEASE</spring-cloud-alibaba-dependencies>
         <mybatisPlus.version>3.2.0</mybatisPlus.version>
         <lombok.version>1.18.22</lombok.version>
         <druid.version>1.2.8</druid.version>
@@ -44,7 +46,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.3.12.RELEASE</version>
+                <version>${spring-boot-dependencies}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -52,7 +54,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR12</version>
+                <version>${spring-cloud-dependencies}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -61,7 +63,7 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.2.7.RELEASE</version>
+                <version>${spring-cloud-alibaba-dependencies}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
