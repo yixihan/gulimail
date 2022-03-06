@@ -17,6 +17,7 @@
         <module>gulimall-product</module>
         <module>gulimall-ware</module>
         <module>gulimall-common</module>
+        <module>gulimall-gateway</module>
     </modules>
 
     <!-- 统一管理 jar 包版本 -->

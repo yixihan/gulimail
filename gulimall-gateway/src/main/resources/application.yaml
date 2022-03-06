@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: baidu_route
+          uri: https://www.baidu.com/
+          predicates:
+            - Query=url, baidu
+
+        - id: bilibili_route
+          uri: https://www.bilibili.com/
+          predicates:
+            - Query=url, bilibili

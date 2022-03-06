@@ -5,7 +5,8 @@ server:
 spring:
   application:
     name: gulimall-member
-
+  profiles:
+    active: dev
   datasource:
     url: jdbc:mysql://175.24.229.41:2233/gulimall_ums?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: gulimall-gateway
+  profiles:
+    active: dev
+  main:
+    web-application-type: reactive
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml #指定yaml格式的配置
+        namespace: 4c9dc4ee-a513-48f1-96ae-224fa7a0b4ce
+        group: DEV_GROUP

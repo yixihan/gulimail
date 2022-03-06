@@ -1,19 +1,16 @@
 package com.yixihan.gulimall.coupon.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.yixihan.gulimall.coupon.entity.CouponEntity;
-import com.yixihan.gulimall.coupon.service.CouponService;
 import com.yixihan.common.utils.PageUtils;
 import com.yixihan.common.utils.R;
+import com.yixihan.gulimall.coupon.entity.CouponEntity;
+import com.yixihan.gulimall.coupon.service.CouponService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -25,10 +22,38 @@ import com.yixihan.common.utils.R;
  * @date 2022-03-05 21:49:26
  */
 @RestController
+@RefreshScope
 @RequestMapping("coupon/coupon")
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @Value ("${coupon.user.name}")
+    private String name;
+
+    @Value ("${coupon.user.age}")
+    private Integer age;
+
+    @Value ("${coupon.user.email}")
+    private String email;
+
+    @Value ("${coupon.user.phone}")
+    private String phone;
+
+
+
+    @GetMapping("/test")
+    public R test () {
+        return R.ok ().put ("name", name).put ("age", age).put ("email", email).put ("phone", phone);
+    }
+
+    @GetMapping("/member/list")
+    public R memberCoupons () {
+        CouponEntity couponEntity = new CouponEntity ();
+        couponEntity.setCouponName ("满100减10");
+
+        return R.ok ().put ("coupon", Arrays.asList (couponEntity));
+    }
 
     /**
      * 列表
