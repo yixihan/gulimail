@@ -2,12 +2,19 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: baidu_route
-          uri: https://www.baidu.com/
+        - id: product_route
+          uri: lb://gulimall-product
           predicates:
-            - Query=url, baidu
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /$\{segment}
 
-        - id: bilibili_route
-          uri: https://www.bilibili.com/
+        - id: admin_route
+          uri: lb://renren-fast
           predicates:
-            - Query=url, bilibili
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /renren-fast/$\{segment}
+
+## 前端项目, /api
+## http://localhost:15000/api/captcha.jpg ==> http://localhost:8848/renren-fast/captcha.jpg
